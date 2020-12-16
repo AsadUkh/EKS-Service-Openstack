@@ -126,3 +126,28 @@ output "k8s_node_fips" {
 output "bastion_fips" {
   value = module.ips.bastion_fips
 }
+
+#######################################################added by asad
+
+output "k8s_master_ips" {
+  value =  module.compute.k8s_master_ips
+}
+
+output "k8s_master_no-fips" {
+  value =  module.compute.k8s_master_no-fips
+}
+
+output "k8s_node_ips" {
+  value = module.compute.k8s_node_ips
+}
+
+output "k8s_nodes_ips" {
+  value = module.compute.k8s_nodes_ips
+}
+
+output "k8s_nodes_no-fips" {
+  value = module.compute.k8s_nodes_no-fips
+}
+
+
+

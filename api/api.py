@@ -51,7 +51,6 @@ def api_filter():
 #    str_replace(filename, 'network_name' +pattern , 'network_name = '+'"'+content['cluster']['network_name']+'"'+'\n')
 #    str_replace(filename, 'floatingip_pool' +pattern , 'floatingip_pool = '+'"'+content['cluster']['floatingip_pool']+'"'+'\n')
 #    str_replace(filename, 'subnet_cidr' +pattern , 'subnet_cidr = '+'"'+ content['cluster']['subnet_cidr']+'"'+'\n')
-#    cluster_playbook_executer()
 
 
 #   code block for runnig terraform from backend
@@ -64,23 +63,24 @@ def api_filter():
 #    tf.init(capture_output=False)
 #    tf.apply(input=True,skip_plan=True, no_color=IsFlagged, refresh=False , capture_output=False , var_file=kubespray_base_path+'/inventory/'+content['cluster']['cluster_name']+'/'+'cluster.tfvars')
 
-#   code block end terraform
+#    code block end terraform
+    
+    
+     
+#    code block for running terraform using bash script
+#    rc = subprocess.call("./create_stack_tf.sh",shell=True)
 
 
 
-#   code block for running terraform using bash script
-    rc = subprocess.call("./create_stack_tf.sh",shell=True)
+#    code for running playbook for making cluster configuration
 
-
+    cluster_playbook_executer()
 
 #    id = query_parameters.get('id')
 #   published = query_parameters.get('published')
 #    author = query_parameters.get('author')
 
-    for key, value in content.items():
-        print(key, ' ', value)
 
-#    results = id + " " + published + " " + author
     
     return jsonify(content)
 app.run(host= '0.0.0.0')
