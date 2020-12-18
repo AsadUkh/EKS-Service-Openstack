@@ -7,6 +7,8 @@ from python_terraform import *
 import re
 from cluster_play import *
 import subprocess
+from config_generator import * 
+
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -51,6 +53,7 @@ def api_filter():
 #    str_replace(filename, 'network_name' +pattern , 'network_name = '+'"'+content['cluster']['network_name']+'"'+'\n')
 #    str_replace(filename, 'floatingip_pool' +pattern , 'floatingip_pool = '+'"'+content['cluster']['floatingip_pool']+'"'+'\n')
 #    str_replace(filename, 'subnet_cidr' +pattern , 'subnet_cidr = '+'"'+ content['cluster']['subnet_cidr']+'"'+'\n')
+    str_replace(filename, 'auth_token' +pattern , 'auth_token = '+'"'+ content['cluster']['auth_token']+'"'+'\n')
 
 
 #   code block for runnig terraform from backend
@@ -68,13 +71,13 @@ def api_filter():
     
      
 #    code block for running terraform using bash script
-#    rc = subprocess.call("./create_stack_tf.sh",shell=True)
-
+    rc = subprocess.call("./create_stack_tf.sh",shell=True)    
+    inventory_generator(content)
 
 
 #    code for running playbook for making cluster configuration
-
-    cluster_playbook_executer()
+#    rc = subprocess.call("./export.sh",shell=True)
+#    cluster_playbook_executer()
 
 #    id = query_parameters.get('id')
 #   published = query_parameters.get('published')

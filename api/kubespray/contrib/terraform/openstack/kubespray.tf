@@ -1,20 +1,20 @@
 
 provider "openstack" {
- # user_name   = "admin"
- # password    = "Av1x6Vm4uoBxo3EGp4HAyWBK9"
- # auth_url    =  "http://10.81.1.150:5000/v3"
- # tenant_name = "admin"
- # project_domain_name= "default"
- # region      = "regionOne"
- # user_domain_name = "Default"
- user_name   = "aliabbas"
- password    = "letmein"
+
+/*
+comment if token not provided
+  user_name   = "aliabbas"
+  password    = "letmein"
   auth_url    =  "http://10.81.1.155:5000/v3"
   tenant_name = "DevOps"
- # project_domain_name= "default"
   region      = "Riyadh"
   user_domain_name = "Default"
+*/
+  auth_url    = "http://10.81.1.155:5000/v3"
+  tenant_id   = "5681e720165d4846bb92edd0a5efd889"
+  token       = var.auth_token
 
+ 
 }
 
 module "network" {

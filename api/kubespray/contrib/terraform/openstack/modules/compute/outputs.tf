@@ -3,7 +3,7 @@ output "k8s_master_ips" {
 }
 
 output "k8s_master_no-fips" {
-  value = openstack_compute_instance_v2.k8s_master_no_floating_ip_no_etcd[*].access_ip_v4
+  value = openstack_compute_instance_v2.k8s_master_no_floating_ip[*].access_ip_v4
 }
 
 output "k8s_node_ips" {
@@ -12,7 +12,7 @@ output "k8s_node_ips" {
 
 output "k8s_nodes_ips" {
  # value = openstack_compute_instance_v2.k8s_nodes[*].access_ip_v4
-   value = "chhotaia"
+   value = "you have to do nothing with this  var"
 }
 
 output "k8s_nodes_no-fips" {

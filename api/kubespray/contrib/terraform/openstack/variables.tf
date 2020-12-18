@@ -2,6 +2,11 @@ variable "cluster_name" {
   default = "example"
 }
 
+variable "auth_token" {
+  description = "token to be used for openstack"
+}
+
+
 variable "az_list" {
   description = "List of Availability Zones to use for masters in your OpenStack cluster"
   type        = list(string)
