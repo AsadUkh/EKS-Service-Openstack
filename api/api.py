@@ -45,6 +45,9 @@ def api_filter():
 #    print (destination)
 #    os.symlink(kubespray_base_path+'/contrib/terraform/openstack/hosts',kubespray_base_path +'/inventory/'+content['cluster']['cluster_name']+'/hosts' )
 #    os.symlink(kubespray_base_path+'/contrib',kubespray_base_path +'/inventory/'+content['cluster']['cluster_name']+'/contrib' )
+
+#    code block for replacing variables in cluster.tfvars file
+
     filename = kubespray_base_path+'/inventory/'+content['cluster']['cluster_name']+'/'+'cluster.tfvars'
     pattern = '\s*=\s*([\S\s]+)'
 #    str_replace(filename, 'cluster_name' +pattern , 'cluster_name = '+ '"'+ content['cluster']['cluster_name']+'"'+'\n')
@@ -54,6 +57,7 @@ def api_filter():
 #    str_replace(filename, 'floatingip_pool' +pattern , 'floatingip_pool = '+'"'+content['cluster']['floatingip_pool']+'"'+'\n')
 #    str_replace(filename, 'subnet_cidr' +pattern , 'subnet_cidr = '+'"'+ content['cluster']['subnet_cidr']+'"'+'\n')
     str_replace(filename, 'auth_token' +pattern , 'auth_token = '+'"'+ content['cluster']['auth_token']+'"'+'\n')
+
 
 
 #   code block for runnig terraform from backend
